@@ -1,3 +1,4 @@
+import './account.js';
 const loginForm = document.getElementById('login-form');
 const loginScreen = document.getElementById('login-screen');
 const dashboard = document.getElementById('dashboard');
@@ -647,6 +648,18 @@ logoutButton.addEventListener('click', function () {
 
 function logout() {
 
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        fetch('/api/logout', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    }
+
     localStorage.removeItem('token');
 
     transactions = [];
@@ -660,7 +673,6 @@ function logout() {
     transactionsList.innerHTML = '';
 
 }
-
 
 /* =========================
    LOGIN AUTOMÁTICO

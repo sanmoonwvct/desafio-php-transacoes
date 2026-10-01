@@ -11,13 +11,16 @@ class TransactionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+   public function index(Request $request)
     {
-    return response()->json(
-        Transaction::with('user')->latest()->get()
-    );
-    }
+    $transactions = $request->user()
+        ->transactions()
+        ->with('user')
+        ->latest()
+        ->get();
 
+    return response()->json($transactions);
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -44,9 +47,12 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
-    $transaction = Transaction::with('user')->findOrFail($id);
+    $transaction = $request->user()
+        ->transactions()
+        ->with('user')
+        ->findOrFail($id);
 
     return response()->json($transaction);
     }
@@ -56,7 +62,9 @@ class TransactionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-    $transaction = Transaction::findOrFail($id);
+    $transaction = $request->user()
+        ->transactions()
+        ->findOrFail($id);
 
     $data = $request->validate([
         'amount' => ['sometimes', 'numeric', 'min:0'],
@@ -69,12 +77,15 @@ class TransactionController extends Controller
     return response()->json($transaction);
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
-    $transaction = Transaction::findOrFail($id);
+    $transaction = $request->user()
+        ->transactions()
+        ->findOrFail($id);
 
     $transaction->delete();
 

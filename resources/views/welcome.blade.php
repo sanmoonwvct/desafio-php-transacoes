@@ -52,6 +52,62 @@
 
                 <p id="login-error" class="login-error"></p>
 
+                <p class="auth-link">
+                    Não tem conta?
+                    <a href="#" id="show-register">Criar conta</a>
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- CRIAR CONTA -->
+    <div id="register-screen" class="login-screen" style="display: none;">
+
+        <div class="login-card">
+
+            <div class="login-logo">Q</div>
+
+            <h1>Criar conta</h1>
+
+            <p>Preencha os dados para começar</p>
+
+            <form id="register-form">
+
+                <div class="form-group">
+                    <label for="reg-name">Nome</label>
+                    <input type="text" id="reg-name" placeholder="Seu nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" placeholder="Digite seu e-mail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-password">Senha</label>
+                    <input type="password" id="reg-password" placeholder="Mínimo 8 caracteres" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-password-confirm">Confirmar senha</label>
+                    <input type="password" id="reg-password-confirm" placeholder="Repita a senha" required>
+                </div>
+
+                <button type="submit" class="login-button">
+                    Criar conta
+                </button>
+
+                <p id="register-error" class="login-error"></p>
+
+                <p class="auth-link">
+                    Já tem conta?
+                    <a href="#" id="show-login">Entrar</a>
+                </p>
+
             </form>
 
         </div>
@@ -72,6 +128,13 @@
                 class="btn-criar"
             >
                 Criar Transação
+            </button>
+
+            <button
+                id="profile-button"
+                class="profile-button"
+            >
+                Perfil
             </button>
 
             <button
@@ -287,6 +350,96 @@
         <button id="delete-action">
             🗑 Excluir
         </button>
+    </div>
+
+
+    <!-- MODAL PERFIL -->
+    <div id="profile-modal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="modal-close" id="profile-modal-close">×</button>
+
+            <h2>Meu perfil</h2>
+
+            <form id="profile-form">
+
+                <div class="form-group">
+                    <label for="profile-name">Nome</label>
+                    <input type="text" id="profile-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-email">E-mail</label>
+                    <input type="email" id="profile-email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-password">Nova senha</label>
+                    <input type="password" id="profile-password" placeholder="Deixe em branco para não alterar">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-password-confirm">Confirmar nova senha</label>
+                    <input type="password" id="profile-password-confirm">
+                </div>
+
+                <p id="profile-error" class="form-error"></p>
+                <p id="profile-success" class="form-success"></p>
+
+                <button type="submit" class="submit-button">
+                    Salvar alterações
+                </button>
+
+            </form>
+
+            <div class="danger-zone">
+
+                <h3>Zona de perigo</h3>
+
+                <p>Excluir sua conta apaga também todas as suas transações. Essa ação não pode ser desfeita.</p>
+
+                <button type="button" id="open-delete-modal" class="danger-button">
+                    Excluir minha conta
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL EXCLUIR CONTA -->
+    <div id="delete-account-modal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="modal-close" id="delete-modal-close">×</button>
+
+            <h2>Excluir conta</h2>
+
+            <form id="delete-account-form">
+
+                <div class="form-group">
+                    <label for="delete-password">Digite sua senha para confirmar</label>
+                    <input type="password" id="delete-password" required>
+                </div>
+
+                <p id="delete-error" class="form-error"></p>
+
+                <button type="submit" class="danger-button danger-full">
+                    Excluir definitivamente
+                </button>
+
+                <button type="button" id="cancel-delete" class="secondary-button">
+                    Cancelar
+                </button>
+
+            </form>
+
+        </div>
+
     </div>
 
 </body>
