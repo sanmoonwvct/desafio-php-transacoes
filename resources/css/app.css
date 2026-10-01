@@ -1,0 +1,473 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* =========================
+   BASE
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f1f4f5;
+    font-family: Arial, sans-serif;
+    color: #172b3a;
+}
+
+
+/* =========================
+   LOGIN
+   ========================= */
+
+.login-screen {
+    min-height: 100vh;
+    background: #f1f4f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: 380px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.login-logo {
+    width: 54px;
+    height: 54px;
+    border: 5px solid #000;
+    border-radius: 50%;
+    font-size: 34px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c9a47c;
+    margin: 0 auto 20px;
+}
+
+.login-card h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.login-card > p {
+    color: #718594;
+    font-size: 14px;
+    margin: 8px 0 30px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 42px;
+    padding: 0 13px;
+    border: 1px solid #dce4e8;
+    border-radius: 6px;
+    outline: none;
+    background: #fff;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #172b3a;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #718594;
+    font-size: 12px;
+}
+
+.login-button,
+.submit-button {
+    width: 100%;
+    height: 44px;
+    background: #172b3a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-button:hover,
+.submit-button:hover,
+.btn-criar:hover {
+    opacity: 0.9;
+}
+
+.login-error,
+.form-error {
+    color: #c0392b;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   DASHBOARD
+   ========================= */
+
+.dashboard {
+    display: none;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   TOPO
+   ========================= */
+
+.topbar {
+    height: 66px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 52px;
+    border-bottom: 1px solid #e1e5e8;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    border: 5px solid #000;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c9a47c;
+}
+
+.btn-criar {
+    background: #172b3a;
+    color: white;
+    border: none;
+    border-radius: 22px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-button {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: #718594;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 66px;
+    bottom: 0;
+    width: 90px;
+    background: #000;
+}
+
+.sidebar-item {
+    color: white;
+    padding: 25px 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   CONTEÚDO
+   ========================= */
+
+.content {
+    margin-left: 90px;
+    min-height: calc(100vh - 66px);
+    padding: 27px 30px;
+    background: #f1f4f5;
+}
+
+.content h1 {
+    margin: 0 0 28px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   CARD
+   ========================= */
+
+.transactions-card {
+    background: white;
+    border-radius: 4px;
+    padding: 24px 30px 30px;
+}
+
+
+/* =========================
+   BUSCA
+   ========================= */
+
+.search-box {
+    height: 38px;
+    border: 1px solid #dce4e8;
+    border-radius: 22px;
+    background: #f5f8f9;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+.search-box span {
+    font-size: 24px;
+    color: #718594;
+}
+
+
+/* =========================
+   TRANSAÇÕES
+   ========================= */
+
+.transactions-list {
+    border-top: 1px solid #dce3e7;
+}
+
+.transaction {
+    min-height: 55px;
+    border-bottom: 1px solid #dce3e7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px 0 20px;
+    font-size: 14px;
+}
+
+.transaction-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.transaction-info strong {
+    font-weight: 500;
+}
+
+.status {
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.processing {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.approved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.denied {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.more-button {
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+    color: #718594;
+}
+
+.more-button:hover {
+    color: #172b3a;
+}
+
+.empty-state {
+    padding: 35px;
+    text-align: center;
+    color: #718594;
+}
+
+
+/* =========================
+   MENU DE AÇÕES
+   ========================= */
+
+.action-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 130px;
+    background: white;
+    border: 1px solid #dce4e8;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.action-menu button {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.action-menu button:hover {
+    background: #f1f4f5;
+}
+
+
+/* =========================
+   MODAIS
+   ========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    width: 450px;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin: 0 0 25px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    color: #718594;
+    cursor: pointer;
+}
+
+
+/* =========================
+   DETALHES
+   ========================= */
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e4e8ea;
+    font-size: 14px;
+}
+
+.detail-row strong {
+    color: #172b3a;
+}
+
+.detail-row a {
+    color: #172b3a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .content {
+        margin-left: 70px;
+        padding: 20px 15px;
+    }
+
+    .topbar {
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .transaction-info {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .transactions-card {
+        padding: 18px;
+    }
+
+}
