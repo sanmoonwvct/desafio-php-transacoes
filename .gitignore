@@ -27,3 +27,4 @@ Homestead.yaml
 Thumbs.db
 /database/tenant*
 
+/storage/tenant*
